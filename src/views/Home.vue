@@ -3,7 +3,10 @@
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+
+  <h1>Testing</h1>
 </template>
+
+<style>
+
+</style>
