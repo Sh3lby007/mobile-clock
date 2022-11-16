@@ -9,9 +9,11 @@ const showMenu = ref(false)
 
     <!-- Most left side of navbar -->
     <div class="navbar-brand">
-      <a class="navbar-item" href="https://vuejs.org/">
+      <router-link to="/" class="navbar-item">
+
         <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="30" height="30" />
-      </a>
+
+      </router-link>
 
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" @click="showMenu = !showMenu"
         :class="{'is-active': showMenu}">
@@ -19,6 +21,7 @@ const showMenu = ref(false)
         <span></span>
         <span></span>
       </a>
+
     </div>
 
     <!-- Most right side of navbar -->
