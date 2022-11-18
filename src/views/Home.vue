@@ -8,8 +8,10 @@
 import { ref } from "vue";
 
 let time = ref(new Date());
+const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-setInterval(function () {
+
+const interval = setInterval(function () {
   time.value = new Date();
 }, 1000);
 
@@ -19,10 +21,31 @@ setInterval(function () {
 </script>
 
 <template>
-  <div class="columns is-mobile is-centered">
-    <div class="column is-half">
-      <div class="box">
-        {{ time }}
+  <div class="columns is-mobile is-centered is-multiline">
+    <div class="column is-full">
+      <h1 class="title has-text-weight-normal">
+        {{ timeZone }}
+      </h1>
+    </div>
+
+    <div class="column is-full">
+      <h1 class="title has-text-weight-normal">
+        {{
+            new Intl.DateTimeFormat("default", {
+              day: "2-digit",
+              weekday: "long",
+              month: "long",
+              year: "numeric",
+            }).format(time)
+        }}
+      </h1>
+    </div>
+
+    <div class="column is-full">
+      <div class="box has-text-centered">
+        <h1 class="title has-text-weight-normal">
+          {{ time.toLocaleTimeString() }}
+        </h1>
       </div>
     </div>
   </div>

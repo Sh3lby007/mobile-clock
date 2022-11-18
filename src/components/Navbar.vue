@@ -29,7 +29,8 @@ const showMenu = ref(false)
       <div @click="showMenu = false" class="navbar-end">
 
         <router-link to="/" class="navbar-item">Clock</router-link>
-
+        <router-link to="/Timer" class="navbar-item">Timer
+        </router-link>
         <router-link to="/Settings" class="navbar-item">Settings</router-link>
 
         <a class="navbar-item" href="https://github.com/Sh3lby007/mobile-clock">Github</a>
