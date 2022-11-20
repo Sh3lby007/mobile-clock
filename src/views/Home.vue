@@ -6,10 +6,12 @@
 
 <script setup>
 import { ref } from "vue";
+import { useStore } from "../stores/counter";
+
+const timeStore = useStore();
 
 let time = ref(new Date());
 const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-
 
 const interval = setInterval(function () {
   time.value = new Date();
@@ -22,27 +24,65 @@ const interval = setInterval(function () {
 
 <template>
   <div class="columns is-mobile is-centered is-multiline">
-    <div class="column is-full">
+    <div v-if="timeStore.settings.displayStyle === '1'" class="column is-full">
       <h1 class="title has-text-weight-normal">
         {{ timeZone }}
       </h1>
-    </div>
 
-    <div class="column is-full">
-      <h1 class="title has-text-weight-normal">
-        {{
+      <div class="column is-full">
+        <h1 class="title has-text-weight-normal">
+          {{
             new Intl.DateTimeFormat("default", {
               day: "2-digit",
               weekday: "long",
               month: "long",
               year: "numeric",
             }).format(time)
-        }}
-      </h1>
+          }}
+        </h1>
+      </div>
+
+      <div class="column is-full">
+        <div class="box has-text-centered">
+          <h1 class="title has-text-weight-normal">
+            {{ time.toLocaleTimeString() }}
+          </h1>
+        </div>
+      </div>
     </div>
 
-    <div class="column is-full">
-      <div class="box has-text-centered">
+    <div
+      v-else-if="timeStore.settings.displayStyle === '2'"
+      class="column is-full"
+    >
+      <h1 class="title has-text-weight-normal">
+        {{ timeZone }}
+      </h1>
+
+      <div class="column is-full">
+        <h1 class="title has-text-weight-normal">
+          {{
+            new Intl.DateTimeFormat("default", {
+              day: "numeric",
+              weekday: "long",
+              month: "numeric",
+              year: "numeric",
+            }).format(time)
+          }}
+        </h1>
+      </div>
+
+      <div class="column is-full">
+        <div class="box has-text-centered">
+          <h1 class="title has-text-weight-normal">
+            {{ time.toLocaleTimeString() }}
+          </h1>
+        </div>
+      </div>
+    </div>
+
+    <div v-else class="column">
+      <div class="has-text-centered">
         <h1 class="title has-text-weight-normal">
           {{ time.toLocaleTimeString() }}
         </h1>
