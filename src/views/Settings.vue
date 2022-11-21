@@ -30,7 +30,7 @@ const timeStore = useStore();
               >
                 <option :value="1">Time Only</option>
                 <option :value="2">Short Date and Time</option>
-                <option :value="3">Date and Time</option>
+                <option :value="3">Full Date and Time</option>
               </select>
             </div>
           </div>
