@@ -3,7 +3,7 @@ import { defineStore } from "pinia";
 export const useStore = defineStore("home", {
   state: () => ({
     settings: {
-      displayStyle: "1" | "2" | "3",
+      displayStyle: 2,
     },
   }),
 });

@@ -24,7 +24,7 @@ const interval = setInterval(function () {
 
 <template>
   <div class="columns is-mobile is-centered is-multiline">
-    <div v-if="timeStore.settings.displayStyle === '1'" class="column is-full">
+    <div v-if="timeStore.settings.displayStyle === 3" class="column is-full">
       <h1 class="title has-text-weight-normal">
         {{ timeZone }}
       </h1>
@@ -52,7 +52,7 @@ const interval = setInterval(function () {
     </div>
 
     <div
-      v-else-if="timeStore.settings.displayStyle === '2'"
+      v-else-if="timeStore.settings.displayStyle === 2"
       class="column is-full"
     >
       <h1 class="title has-text-weight-normal">
