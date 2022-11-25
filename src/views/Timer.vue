@@ -17,7 +17,6 @@ let timerRunning = ref(false);
 //   }
 // }
 function countDown() {
-
   // A preliminary version to primitively add all the amount of seconds together for the timer to countdown properly. Aim to implement it to show 3 boxes which hours, minutes and seconds. Whereby every 60 seconds will minus 1 minute and every 60 mintes will minus 1 hour.
   timeLeft.value = seconds.value + minutes.value * 60 + hours.value * 3600;
   // In MDN web docs the setInterval function returns a random intervalID which identifies the timer created by the call to setInterval(); this value can be passed to clearInterval() to cancel the interval.
@@ -53,7 +52,8 @@ function resetTimer() {
     <!-- Show this v-if block if the timer is running-->
     <div class="column is-full">
       <h1 class="has-text-centered">Timer</h1>
-      <h1 class="has-text-centered">{{ timeLeft }}</h1>
+      <h1 class="has-text-centered">{{ hours }} : {{ minutes }} : {{ seconds }}</h1>
+      <h1 class=" has-text-centered">{{ timeLeft }}</h1>
     </div>
     <!-- Using the v-model directive to bind the appropriate data to the respective number input boxes. -->
     <div class="column is-4">
