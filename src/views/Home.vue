@@ -29,25 +29,21 @@ const interval = setInterval(function () {
         {{ timeZone }}
       </h1>
 
-      <div class="column is-full">
-        <h1 class="title has-text-weight-normal">
-          {{
-            new Intl.DateTimeFormat("default", {
-              day: "2-digit",
-              weekday: "long",
-              month: "long",
-              year: "numeric",
-            }).format(time)
-          }}
-        </h1>
-      </div>
+      <h1 class="title has-text-weight-normal">
+        {{
+          new Intl.DateTimeFormat("default", {
+            day: "2-digit",
+            weekday: "long",
+            month: "long",
+            year: "numeric",
+          }).format(time)
+        }}
+      </h1>
 
-      <div class="column is-full">
-        <div class="box has-text-centered">
-          <h1 class="title has-text-weight-normal">
-            {{ time.toLocaleTimeString() }}
-          </h1>
-        </div>
+      <div class="box has-text-centered">
+        <h1 class="title has-text-weight-normal">
+          {{ time.toLocaleTimeString() }}
+        </h1>
       </div>
     </div>
 
@@ -59,30 +55,26 @@ const interval = setInterval(function () {
         {{ timeZone }}
       </h1>
 
-      <div class="column is-full">
-        <h1 class="title has-text-weight-normal">
-          {{
-            new Intl.DateTimeFormat("default", {
-              day: "numeric",
-              weekday: "long",
-              month: "numeric",
-              year: "numeric",
-            }).format(time)
-          }}
-        </h1>
-      </div>
+      <h1 class="title has-text-weight-normal">
+        {{
+          new Intl.DateTimeFormat("default", {
+            day: "numeric",
+            weekday: "long",
+            month: "numeric",
+            year: "numeric",
+          }).format(time)
+        }}
+      </h1>
 
-      <div class="column is-full">
-        <div class="box has-text-centered">
-          <h1 class="title has-text-weight-normal">
-            {{ time.toLocaleTimeString() }}
-          </h1>
-        </div>
+      <div class="box has-text-centered">
+        <h1 class="title has-text-weight-normal">
+          {{ time.toLocaleTimeString() }}
+        </h1>
       </div>
     </div>
 
     <div v-else class="column">
-      <div class="has-text-centered">
+      <div class="box has-text-centered">
         <h1 class="title has-text-weight-normal">
           {{ time.toLocaleTimeString() }}
         </h1>
@@ -90,3 +82,9 @@ const interval = setInterval(function () {
     </div>
   </div>
 </template>
+
+<style>
+.columns {
+  margin-top: 110px;
+}
+</style>
