@@ -29,12 +29,27 @@ function countDown() {
   minutes.value = minutes.value < 10 ? "0" + minutes.value : minutes.value;
   seconds.value = seconds.value < 10 ? "0" + seconds.value : seconds.value;
 
+  // Import sound for when time is up.
+  const timeUpAudio = new Audio(
+    "http://soundbible.com/mp3/analog-watch-alarm_daniel-simion.mp3"
+  );
+
+  const timeTickingAudio = new Audio(
+    "https://www.soundjay.com/clock/sounds/clock-ticking-4.mp3"
+  );
+
   // In MDN web docs the setInterval function returns a random intervalID which identifies the timer created by the call to setInterval(); this value can be passed to clearInterval() to cancel the interval.
   intervalID.value = setInterval(() => {
     // If the timer completes, reset the timer value and stop the timer interval from running
-    if (timeLeft.value <= 0) return resetTimer();
-
-    timeLeft.value--;
+    if (timeLeft.value <= 0) {
+      timeUpAudio.play();
+      timeTickingAudio.pause();
+      alert("Time up!");
+      resetTimer();
+    } else {
+      timeLeft.value--;
+      timeTickingAudio.play();
+    }
 
     // Number of seconds left before the end of the timer
     const currentSecondsLeft = timeLeft.value;
@@ -56,7 +71,6 @@ function countDown() {
   timerRunning.value = true;
 }
 
-// @todo Play a sound when stop
 function stopTimer() {
   // Since the clearInterval requires an intervalID to cancel the interval, we will use it here to tell the timer to stop counting down.
   clearInterval(intervalID.value);
