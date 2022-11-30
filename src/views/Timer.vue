@@ -20,6 +20,14 @@ let timerRunning = ref(false);
 //   }
 // }
 
+// Import sound for when time is up.
+const timeUpAudio = new Audio(
+  "http://soundbible.com/mp3/analog-watch-alarm_daniel-simion.mp3"
+);
+const timeTickingAudio = new Audio(
+  "https://www.soundjay.com/clock/sounds/clock-ticking-4.mp3"
+);
+
 function countDown() {
   // A preliminary version to primitively add all the amount of seconds together for the timer to countdown properly. Aim to implement it to show 3 boxes which hours, minutes and seconds. Whereby every 60 seconds will minus 1 minute and every 60 mintes will minus 1 hour.
   timeLeft.value = seconds.value + minutes.value * 60 + hours.value * 3600;
@@ -28,15 +36,6 @@ function countDown() {
   hours.value = hours.value < 10 ? "0" + hours.value : hours.value;
   minutes.value = minutes.value < 10 ? "0" + minutes.value : minutes.value;
   seconds.value = seconds.value < 10 ? "0" + seconds.value : seconds.value;
-
-  // Import sound for when time is up.
-  const timeUpAudio = new Audio(
-    "http://soundbible.com/mp3/analog-watch-alarm_daniel-simion.mp3"
-  );
-
-  const timeTickingAudio = new Audio(
-    "https://www.soundjay.com/clock/sounds/clock-ticking-4.mp3"
-  );
 
   // In MDN web docs the setInterval function returns a random intervalID which identifies the timer created by the call to setInterval(); this value can be passed to clearInterval() to cancel the interval.
   intervalID.value = setInterval(() => {
@@ -74,6 +73,7 @@ function countDown() {
 function stopTimer() {
   // Since the clearInterval requires an intervalID to cancel the interval, we will use it here to tell the timer to stop counting down.
   clearInterval(intervalID.value);
+  timeTickingAudio.pause();
   timerRunning.value = false;
 }
 
