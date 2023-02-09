@@ -1,29 +1,28 @@
-# Mobile-click
+# Mobile-clock
 
-This template should help get you started developing with Vue 3 in Vite.
+A beautiful and simple clock app designed for mobile devices. It features a minimalist interface that showcases the current time and date with 3 different settings.
 
-## Recommended IDE Setup
+## Installation
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+1. Clone the repo:
 
-## Customize configuration
+```sh
+git clone https://github.com/Sh3lby007/mobile-clock
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+```
 
-## Project Setup
+2. Install the required dependencies"
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+3. Start the development server:
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+## License
 
-```sh
-npm run build
-```
+The Mobile-Clock Vue App is open-source software licensed under the MIT license.
